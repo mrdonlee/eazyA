@@ -1,0 +1,78 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+.coverage.*
+venv/
+ENV/
+env/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+# Keep Cargo.lock for binary projects, uncomment for libraries
+# !Cargo.lock
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.vim/
+*.sublime-workspace
+*.sublime-project
+
+# Documentation
+docs/_build/
+docs/api/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Project specific
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+config.local.toml
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Misc
+.cache
+tmp/
+log/
+logs/
