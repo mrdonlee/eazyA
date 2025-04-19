@@ -38,8 +38,8 @@ export default function ProfilePage() {
                             </div>
                             <div>
                                 <div className="text-sm font-medium">API Key</div>
-                                <div className="flex items-center gap-2">
-                                    <div className="text-sm text-muted-foreground">••••••••••••••••</div>
+                                <div className="flex items-center justify-center gap-2">
+                                    <div className="text-sm text-muted-foreground text-center">••••••••••••••••</div>
                                     <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
                                         <span className="sr-only">Copy</span>
                                         <svg
@@ -118,15 +118,15 @@ export default function ProfilePage() {
                         <TabsContent value="uploads" className="space-y-4">
                             <Card>
                                 <CardHeader>
-                                    <CardTitle>Recent Uploads</CardTitle>
-                                    <CardDescription>Your recently uploaded datasets and models</CardDescription>
+                                    <CardTitle className="text-left">Recent Uploads</CardTitle>
+                                    <CardDescription className="text-left">Your recently uploaded datasets and models</CardDescription>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="space-y-4">
                                         {[1, 2, 3].map((i) => (
                                             <div key={i} className="flex items-center justify-between p-3 border rounded-md">
                                                 <div>
-                                                    <div className="font-medium">{i % 2 === 0 ? `Dataset ${i}` : `Model ${i}`}</div>
+                                                    <div className="font-medium text-left">{i % 2 === 0 ? `Dataset ${i}` : `Model ${i}`}</div>
                                                     <div className="text-sm text-muted-foreground">Uploaded 3 days ago</div>
                                                 </div>
                                                 <Button variant="ghost" size="sm">
@@ -148,21 +148,21 @@ export default function ProfilePage() {
                         <TabsContent value="billing" className="space-y-4">
                             <Card>
                                 <CardHeader>
-                                    <CardTitle>Billing Information</CardTitle>
-                                    <CardDescription>Your subscription and payment details</CardDescription>
+                                    <CardTitle className="text-left">Billing Information</CardTitle>
+                                    <CardDescription className="text-left">Your subscription and payment details</CardDescription>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <div>
-                                        <div className="text-sm font-medium">Current Plan</div>
+                                        <div className="text-sm font-medium text-left">Current Plan</div>
                                         <div className="flex justify-between items-center">
-                                            <div className="text-2xl font-bold">Pro Plan</div>
+                                            <div className="text-2xl font-bold text-left">Pro Plan</div>
                                             <Badge>Active</Badge>
                                         </div>
-                                        <div className="text-sm text-muted-foreground">$49.99/month</div>
+                                        <div className="text-sm text-muted-foreground text-left">$49.99/month</div>
                                     </div>
 
                                     <div>
-                                        <div className="text-sm font-medium">Payment Method</div>
+                                        <div className="text-sm font-medium text-left">Payment Method</div>
                                         <div className="flex items-center gap-2">
                                             <div className="p-1 border rounded">
                                                 <svg
@@ -189,8 +189,8 @@ export default function ProfilePage() {
                                     </div>
 
                                     <div>
-                                        <div className="text-sm font-medium">Billing Address</div>
-                                        <div className="text-sm text-muted-foreground">
+                                        <div className="text-sm font-medium text-left">Billing Address</div>
+                                        <div className="text-sm text-muted-foreground text-left">
                                             <p>John Doe</p>
                                             <p>123 Main St</p>
                                             <p>San Francisco, CA 94103</p>
@@ -202,16 +202,16 @@ export default function ProfilePage() {
 
                             <Card>
                                 <CardHeader>
-                                    <CardTitle>Billing History</CardTitle>
-                                    <CardDescription>Your recent invoices and payments</CardDescription>
+                                    <CardTitle className="text-left">Billing History</CardTitle>
+                                    <CardDescription className="text-left">Your recent invoices and payments</CardDescription>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="space-y-4">
                                         {[1, 2, 3].map((i) => (
                                             <div key={i} className="flex items-center justify-between p-3 border rounded-md">
                                                 <div>
-                                                    <div className="font-medium">Invoice #{1000 + i}</div>
-                                                    <div className="text-sm text-muted-foreground">April {i}, 2023</div>
+                                                    <div className="font-medium text-left">Invoice #{1000 + i}</div>
+                                                    <div className="text-sm text-muted-foreground text-left">April {i}, 2023</div>
                                                 </div>
                                                 <div className="text-right">
                                                     <div className="font-medium">$49.99</div>
