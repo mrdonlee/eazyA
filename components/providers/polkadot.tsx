@@ -7,7 +7,7 @@ import { uploadDataset } from '@/actions/upload-dataset'
 
 type PolkadotContextType = {
     account: InjectedAccountWithMeta | null
-    uploadDatasetMutation: UseMutateFunction<string, Error>
+    uploadDatasetMutation: UseMutateFunction<string, Error, File, unknown>
     isUploadPending: boolean
     isUploadError: boolean
 }
@@ -24,7 +24,7 @@ export default function PolkadotProvider({ children }: PolkadotProviderProps) {
         isPending: isUploadPending,
         isError: isUploadError,
     } = useMutation({
-        mutationFn: () => uploadDataset(new File([], '')),
+        mutationFn: (file: File) => uploadDataset(file), // Accept file as a parameter
         onSuccess: data => {
             console.log('Upload successful:', data)
         },
