@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Download, Upload, Info, Play, Database } from "lucide-react"
-import { SetStateAction, useState } from "react"
+import { useState } from "react"
 import {
     Dialog,
     DialogContent,
@@ -34,48 +34,76 @@ export default function DatasetsPage() {
         setIsDialogOpen(true);
     };
 
-    const mockDatasets = [
+
+    // Create datasets for all 6 items
+    const allDatasets = [
         {
             id: 1,
-            title: "Dataset 1",
-            description: "Image classification dataset with 10,000 samples",
-            size: "2.3 GB",
+            title: "MNIST Digit Classification",
+            description: "Handwritten digit recognition dataset with 70,000 labeled images",
+            size: "11.8 MB",
             format: "CSV",
             lastUpdated: "2 days ago",
-            usageCost: "$0.05/query",
-            columns: ["id", "image_url", "label", "confidence_score"],
-            rowCount: 10000,
+            usageCost: "$0.01/query",
+            columns: ["id", "image_data", "label", "split"],
+            rowCount: 70000,
         },
         {
             id: 2,
-            title: "Dataset 2",
-            description: "NLP sentiment analysis dataset",
-            size: "1.8 GB",
-            format: "CSV",
+            title: "Twitter Sentiment Analysis",
+            description: "Curated tweets labeled for sentiment analysis research",
+            size: "2.3 GB",
+            format: "JSON",
             lastUpdated: "5 days ago",
-            usageCost: "$0.04/query",
-            columns: ["id", "text", "sentiment", "confidence"],
-            rowCount: 8500,
+            usageCost: "$0.02/query",
+            columns: ["id", "text", "sentiment", "timestamp", "user_id", "location"],
+            rowCount: 1500000,
         },
-        // Add the rest of your datasets here
+        {
+            id: 3,
+            title: "COVID-19 Case Statistics",
+            description: "Global COVID-19 case data by country and region",
+            size: "458 MB",
+            format: "CSV",
+            lastUpdated: "1 week ago",
+            usageCost: "Free",
+            columns: ["date", "country", "region", "cases", "deaths", "recoveries", "tests"],
+            rowCount: 125000,
+        },
+        {
+            id: 4,
+            title: "E-commerce User Behavior",
+            description: "Customer interaction data from a major online retailer",
+            size: "5.7 GB",
+            format: "Parquet",
+            lastUpdated: "3 days ago",
+            usageCost: "$0.05/query",
+            columns: ["user_id", "session_id", "page_visited", "time_spent", "add_to_cart", "purchase", "timestamp"],
+            rowCount: 3200000,
+        },
+        {
+            id: 5,
+            title: "ImageNet Subset",
+            description: "Curated subset of the ImageNet database with 50,000 labeled images across 100 categories",
+            size: "12.4 GB",
+            format: "TFRecord",
+            lastUpdated: "2 weeks ago",
+            usageCost: "$0.08/query",
+            columns: ["image_id", "image_url", "label", "category", "bounding_box", "license"],
+            rowCount: 50000,
+        },
+        {
+            id: 6,
+            title: "Financial Market Data",
+            description: "Historical stock prices and trading volumes for S&P 500 companies",
+            size: "1.2 GB",
+            format: "CSV",
+            lastUpdated: "1 day ago",
+            usageCost: "$0.03/query",
+            columns: ["date", "ticker", "open", "high", "low", "close", "volume", "adj_close"],
+            rowCount: 2500000,
+        }
     ];
-
-    // Create datasets for all 6 items
-    const allDatasets = Array(6).fill(null).map((_, i) => ({
-        id: i + 1,
-        title: `Dataset ${i + 1}`,
-        description: i % 2 === 0 ?
-            "Image classification dataset with 10,000 samples" :
-            "NLP sentiment analysis dataset",
-        size: i % 2 === 0 ? "2.3 GB" : "1.8 GB",
-        format: "CSV",
-        lastUpdated: i % 3 === 0 ? "2 days ago" : i % 3 === 1 ? "5 days ago" : "1 week ago",
-        usageCost: `$0.0${i + 1}/query`,
-        columns: i % 2 === 0 ?
-            ["id", "image_url", "label", "confidence_score"] :
-            ["id", "text", "sentiment", "confidence"],
-        rowCount: i % 2 === 0 ? 10000 : 8500,
-    }));
 
     return (
         <div className="container py-6 space-y-6">
@@ -167,7 +195,7 @@ export default function DatasetsPage() {
                                 </CardContent>
                                 <CardFooter>
                                     <Button variant="outline" className="w-full">
-                                        <Download className="mr-2 h-4 w-4" /> Download
+                                        <Download className="mr-2 h-4 w-4" /> Request Access
                                     </Button>
                                 </CardFooter>
                             </Card>
@@ -226,7 +254,7 @@ export default function DatasetsPage() {
                         <DialogFooter>
                             <div className="grid grid-cols-4 gap-2 w-full">
                                 <Button className="w-full" onClick={() => setIsDialogOpen(false)}>
-                                    <Download className="mr-2 h-4 w-4" /> Download
+                                    <Download className=" h-4 w-4" /> Request Access
                                 </Button>
                                 <Button variant="outline" className="w-full" onClick={() => {
                                     setIsDialogOpen(false);
