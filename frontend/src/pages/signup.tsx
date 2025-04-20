@@ -37,7 +37,9 @@ export default function SignUpPage() {
                     </div>
                 </CardContent>
                 <CardFooter className="flex flex-col space-y-4">
-                    <Button className="w-full">Create Account</Button>
+                    <Button className="w-full" asChild>
+                        <Link to="/datasets">Create Account</Link>
+                    </Button>
                     <div className="text-sm text-center text-muted-foreground">
                         Already have an account?{" "}
                         <Link to="/login" className="text-primary underline-offset-4 hover:underline">
