@@ -37,7 +37,7 @@ WEDD is a decentralized platform designed to solve data ownership issues and est
 
 
 ### Demo
-- [Demo v1](https://www.youtube.com/watch?v=your-demo-link) (20 Apr 2025)
+- [Demo](https://youtu.be/-1HFS6fdr9k) (20 Apr 2025)
 
 ### Images
 
