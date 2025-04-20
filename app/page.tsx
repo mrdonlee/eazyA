@@ -1,5 +1,4 @@
 'use client'
-import { Button } from '@/components/ui/button'
 import { usePolkadot } from '@/components/providers/polkadot'
 
 export default function Home() {
@@ -12,11 +11,13 @@ export default function Home() {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen">
-            <form onSubmit={onSubmit}>
-                <h1 className="text-2xl font-bold mb-4">Upload Dataset</h1>
-                <input type="file" accept=".csv, .json" className="mb-4" />
-                <Button type="submit">Upload</Button>
-            </form>
+            <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] p-4 text-center">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">WEDD: Data Platform</h1>
+                <p className="mt-6 text-lg text-muted-foreground max-w-3xl">
+                    Manage your datasets and models with ease. Upload, analyze, and deploy your data science projects in
+                    one place.
+                </p>
+            </div>
         </div>
     )
 }
