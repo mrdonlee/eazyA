@@ -34,6 +34,6 @@ def convert_to_dataframe(blob_uri):
     pd.DataFrame: A DataFrame containing the API data.
     """
     api_data = download_blob(source_blob_name=blob_uri)
-    api_data = pd.read_json(io.BytesIO(api_data), lines=True)
+    api_data = pd.read_csv(io.BytesIO(api_data))
 
     return pd.DataFrame(api_data)
