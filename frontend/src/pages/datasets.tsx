@@ -18,7 +18,7 @@ export default function DatasetsPage() {
                 <TabsList>
                     <TabsTrigger value="all">All Datasets</TabsTrigger>
                     <TabsTrigger value="my">My Datasets</TabsTrigger>
-                    <TabsTrigger value="public">Public Datasets</TabsTrigger>
+
                 </TabsList>
                 <TabsContent value="all" className="space-y-4">
                     <div className="flex justify-end mb-4">
