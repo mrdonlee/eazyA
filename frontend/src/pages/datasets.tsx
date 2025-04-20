@@ -9,7 +9,36 @@ export default function DatasetsPage() {
         <div className="container py-6 space-y-6">
             <div className="flex justify-between items-center">
                 <h1 className="text-3xl font-bold tracking-tight">Datasets</h1>
-                <Button>
+                <Button onClick={async () => {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.onchange = async (e) => {
+                        const file = (e.target as HTMLInputElement).files?.[0];
+                        if (!file) return;
+
+                        const formData = new FormData();
+                        formData.append('file', file);
+
+                        try {
+                            const response = await fetch('http://localhost:3000/api/upload', {
+                                method: 'POST',
+                                body: formData,
+                            });
+
+                            if (response.ok) {
+                                const data = await response.json();
+                                alert('Dataset uploaded successfully!');
+                                // You might want to refresh the list or add the new dataset
+                            } else {
+                                alert('Failed to upload dataset');
+                            }
+                        } catch (error) {
+                            console.error('Error uploading file:', error);
+                            alert('Error uploading file');
+                        }
+                    };
+                    input.click();
+                }}>
                     <Upload className="mr-2 h-4 w-4" /> Upload Dataset
                 </Button>
             </div>
