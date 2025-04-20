@@ -1,0 +1,20 @@
+[project]
+name = "data-model"
+version = "0.1.0"
+description = "Polkadata data retrieval package"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2.3",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.3",
+    "typing>=3.7.4.3",
+    "web3>=7.10.0",
+]
+
+[project.scripts]
+data_model = "data_model.src.data_model.__main__:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
