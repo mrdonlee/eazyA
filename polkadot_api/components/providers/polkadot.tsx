@@ -24,12 +24,26 @@ export default function PolkadotProvider({ children }: PolkadotProviderProps) {
         isPending: isUploadPending,
         isError: isUploadError,
     } = useMutation({
-        mutationFn: (file: File) => uploadDataset(file), // Accept file as a parameter
+        mutationFn: async (file: File) => {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error('Upload failed');
+            }
+
+            return response.text();
+        },
         onSuccess: data => {
-            console.log('Upload successful:', data)
+            console.log('Upload successful:', data);
         },
         onError: error => {
-            console.error('Upload failed:', error)
+            console.error('Upload failed:', error);
         },
     })
     React.useEffect(() => {
