@@ -19,7 +19,6 @@ export default function ModelsPage() {
                 <TabsList>
                     <TabsTrigger value="all">All Models</TabsTrigger>
                     <TabsTrigger value="my">My Models</TabsTrigger>
-                    <TabsTrigger value="public">Public Models</TabsTrigger>
                 </TabsList>
                 <TabsContent value="all" className="space-y-4">
                     <div className="flex justify-end mb-4">
